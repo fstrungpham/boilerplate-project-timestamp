@@ -18,11 +18,14 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+
 // your first API endpoint... 
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+
+//NEED HELP HERE:
 app.get("/api/:date?", (req,res) => {
   let input = req.params.date;
 
@@ -71,7 +74,9 @@ app.get("/api/:date?", (req,res) => {
   
 });
 
-// listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+
+
+// Listen on port set in environment variable or default to 3000
+var listener = app.listen(process.env.PORT || 3000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
